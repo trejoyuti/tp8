@@ -1,0 +1,190 @@
+/* --- Requisito: Bonus (scroll-behavior) [cite: 110] --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Requisito: Reset básico [cite: 96] --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Buena práctica para el modelo de caja */
+}
+
+/* --- Globales y Tipografía [cite: 104] --- */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Estructura Semántica --- */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 30px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 15px;
+}
+
+/* --- Requisito: Demostración de Cascada y Especificidad [cite: 98] --- */
+h1 {
+    font-size: 2.5em; /* Regla general para H1 */
+    color: #555;
+    font-weight: 700;
+}
+
+/* Esta regla es MÁS ESPECÍFICA (ID > Elemento).
+  Sobrescribe el 'font-size' y 'color' del h1 general
+  SOLO para el H1 dentro de #hero-home.
+*/
+#hero-home h1#titulo-principal {
+    font-size: 3em; /* Sobrescribe 2.5em */
+    color: #0056b3; /* Sobrescribe #555 */
+}
+
+/* --- Requisito: Menú Estilizado [cite: 106] --- */
+nav ul {
+    list-style-type: none; /* Quitar viñetas */
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block; /* Ítems en línea */
+    margin: 0 15px;
+}
+
+nav ul li a {
+    display: block; /* Mejor área de clic */
+    color: #fff;
+    text-decoration: none;
+    padding: 15px; /* Padding */
+    transition: background-color 0.3s;
+}
+
+/* Estado :hover */
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* --- IDs de Secciones --- */
+#hero-home {
+    background-color: #e9ecef;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+#seccion-contacto {
+    background-color: #fff;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 40px;
+    border: 1px solid #ddd;
+}
+
+.boton-contacto {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.boton-contacto:hover {
+    background-color: #0056b3;
+}
+
+
+/* --- Requisito: Diseño de Tarjetas [cite: 105] --- */
+
+/* Requisito: Responsive básico (con Flexbox) [cite: 107] */
+.proyectos-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas bajen si no caben */
+    gap: 20px;
+    justify-content: center; /* Centra las tarjetas */
+}
+
+/* Requisito: Clase reutilizable .tarjeta */
+.tarjeta {
+    background-color: #fff;
+    border: 1px solid #ddd; /* Borde */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 320px;
+    overflow: hidden; /* Para que la imagen no rompa el radius */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.tarjeta-cuerpo {
+    padding: 20px; /* Relleno */
+}
+
+/* Requisito: Clase reutilizable .tarjeta-titulo (o similar) */
+.tarjeta-titulo {
+    font-size: 1.4em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.tarjeta-meta {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+/* Clases reutilizables para tags (inline) */
+.tag {
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+}
+.tag-web { background-color: #d1e7fd; color: #0056b3; }
+.tag-movil { background-color: #d6f5d6; color: #198754; }
+
+
+/* Requisito: Variación de diseño de tarjeta [cite: 105] */
+.tarjeta--destacada {
+    border-color: #007bff;
+    border-width: 2px;
+    background-color: #f8f9fa;
+}
+
+.tarjeta--destacada .tarjeta-titulo {
+    color: #0056b3;
+}
